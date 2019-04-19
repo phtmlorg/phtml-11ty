@@ -1,0 +1,56 @@
+{
+  "name": "@phtml/11ty",
+  "version": "1.0.0",
+  "description": "Use pHTML with 11ty",
+  "author": "Jonathan Neal <jonathantneal@hotmail.com>",
+  "license": "CC0-1.0",
+  "repository": "phtmlorg/phtml-11ty",
+  "homepage": "https://github.com/phtmlorg/phtml-11ty#readme",
+  "bugs": "https://github.com/phtmlorg/phtml-11ty/issues",
+  "main": "index.js",
+  "module": "index.mjs",
+  "files": [
+    "index.js",
+    "index.js.map",
+    "index.mjs",
+    "index.mjs.map"
+  ],
+  "scripts": {
+    "build": "rollup --config --silent",
+    "prepublishOnly": "npm test",
+    "pretest:tape": "npm run build",
+    "test": "npm run test:js && npm run test:tape",
+    "test:js": "eslint src/*.js --cache --ignore-path .gitignore --quiet",
+    "test:tape": "ava"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "dependencies": {
+    "phtml": "^3.1.0"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^0.8.2",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@phtml/doctype": "^3.0.0",
+    "ava": "^1.4.1",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-dev": "^2.0.0",
+    "phtml-tape": "^3.0.0",
+    "pre-commit": "^1.2.2",
+    "rollup": "^1.10.0",
+    "rollup-plugin-babel": "^4.3.2"
+  },
+  "eslintConfig": {
+    "extends": "dev",
+    "parser": "babel-eslint"
+  },
+  "keywords": [
+    "phtml",
+    "html",
+    "phtml-plugin",
+    "11ty"
+  ]
+}
