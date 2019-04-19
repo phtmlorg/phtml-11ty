@@ -34,7 +34,11 @@ const phtml11ty = require('@phtml/11ty');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(phtml11ty, {
-    use // {Array|Plugin} plugin or plugins to be used by pthml
+    // {Array|Object|Plugin} plugin or plugins to be used by pthml
+    use,
+
+    // {Boolean} whether relative paths should reference the source or output path
+    useInputPath
   });
 };
 ```
@@ -44,11 +48,51 @@ module.exports = function (eleventyConfig) {
 ```js
 const phtml11ty = require('@phtml/11ty');
 const phtmlDoctype = require('@phtml/doctype');
+const phtmlSelfClosing = require('@phtml/doctype');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(phtml11ty, {
     // prepend <!doctype html> when a html, head, or body tag is present
     use: phtmlDoctype({ safe: true })
+  });
+};
+```
+
+### Example with Multiple Plugins
+
+```js
+const phtml11ty = require('@phtml/11ty');
+const phtmlDoctype = require('@phtml/doctype');
+const phtmlSelfClosing = require('@phtml/self-closing');
+
+module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(phtml11ty, {
+    use: [
+      // prepend <!doctype html> when a html, head, or body tag is present
+      phtmlDoctype({ safe: true }),
+      // unwrap otherwise-invalid self-closing tags
+      phtmlSelfClosing()
+    ]
+  });
+};
+```
+
+### Example with Transform Function
+
+The `use` option accepts an object with a `transformFunction` function for
+accessing template configuration during plugin initialization.
+
+```js
+const phtml11ty = require('@phtml/11ty');
+const phtmlJsx = require('@phtml/jsx');
+
+module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(phtml11ty, {
+    use: {
+      transformFunction (template) {
+        // support JSX in HTML
+        return phtmlJsx({ data: template.dataCache });
+      }
   });
 };
 ```
