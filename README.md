@@ -60,18 +60,26 @@ module.exports = function (eleventyConfig) {
 
 ### Example with Multiple Plugins
 
+The following example uses the
+[Doctype](https://github.com/phtmlorg/phtml-doctype),
+[Self-Closing](https://github.com/phtmlorg/phtml-self-closing), and
+[Template](https://github.com/phtmlorg/phtml-template),
+
 ```js
 const phtml11ty = require('@phtml/11ty');
 const phtmlDoctype = require('@phtml/doctype');
 const phtmlSelfClosing = require('@phtml/self-closing');
+const phtmlTemplate = require('@phtml/template');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(phtml11ty, {
     use: [
       // prepend <!doctype html> when a html, head, or body tag is present
       phtmlDoctype({ safe: true }),
-      // unwrap otherwise-invalid self-closing tags
-      phtmlSelfClosing()
+      // unwrap <self-closing /> tags
+      phtmlSelfClosing(),
+      // pre-compiled templates using <is:template name="tmpl" /> & <as:template name="tmpl" />
+      phtmlTemplate()
     ]
   });
 };

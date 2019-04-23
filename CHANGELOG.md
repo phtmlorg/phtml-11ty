@@ -1,5 +1,9 @@
 # Changes to pHTML Eleventy
 
+### 1.1.1 (April 22, 2019)
+
+- Updated: `phtml` to `3.2.1`
+
 ### 1.1.0 (April 19, 2019)
 
 - Added: `use` supports an object with a `transformFunction` function for
