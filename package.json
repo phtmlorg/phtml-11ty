@@ -1,6 +1,6 @@
 {
   "name": "@phtml/11ty",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "Use pHTML with 11ty",
   "author": "Jonathan Neal <jonathantneal@hotmail.com>",
   "license": "CC0-1.0",
@@ -24,23 +24,23 @@
     "test:tape": "ava"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.0.0"
   },
   "dependencies": {
-    "phtml": "^3.2.1"
+    "phtml": "^4.0.0"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.8.2",
-    "@babel/core": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "@phtml/doctype": "^3.0.0",
+    "@11ty/eleventy": "^0.8.3",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@phtml/doctype": "^4.0.0",
     "ava": "^1.4.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-config-dev": "^2.0.0",
-    "phtml-tape": "^3.0.0",
+    "phtml-tape": "^4.0.0",
     "pre-commit": "^1.2.2",
-    "rollup": "^1.10.1",
+    "rollup": "^1.11.3",
     "rollup-plugin-babel": "^4.3.2"
   },
   "eslintConfig": {

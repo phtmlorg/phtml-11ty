@@ -4,7 +4,7 @@ module.exports = {
 			corejs: 3,
 			loose: true,
 			modules: false,
-			targets: { node: 6 },
+			targets: { node: 8 },
 			useBuiltIns: 'entry'
 		}]
 	]
