@@ -1,7 +1,6 @@
 .*
 !.editorconfig
 !.eleventyignore
-!.eslintrc
 !.gitignore
 !.travis.yml
 *.log*
